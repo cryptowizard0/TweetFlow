@@ -1,0 +1,11 @@
+{
+  "name": "tweetflow",
+  "description": "Twitter/X workflow skills that auto-install opencli on first use and guide browser setup when needed.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Webber Gao"
+  },
+  "homepage": "https://github.com/cryptowizard0/TweetFlow",
+  "repository": "https://github.com/cryptowizard0/TweetFlow",
+  "license": "MIT"
+}
