@@ -36,8 +36,8 @@ The shared skills exposed by this plugin are:
 
 - `tweetflow-setup`
 - `twitter-quote-commentary`
-- `opencli-twitter-reply-top3`
-- `opencli-twitter-reply-top3-english-only`
+- `twitter-reply-top3`
+- `twitter-reply-top3-english-only`
 - `cross-project-adapter-migration`
 
 ## Use in Claude Code
@@ -66,8 +66,8 @@ Claude exposes the shared skills through the `tweetflow` namespace:
 
 - `/tweetflow:tweetflow-setup`
 - `/tweetflow:twitter-quote-commentary`
-- `/tweetflow:opencli-twitter-reply-top3`
-- `/tweetflow:opencli-twitter-reply-top3-english-only`
+- `/tweetflow:twitter-reply-top3`
+- `/tweetflow:twitter-reply-top3-english-only`
 - `/tweetflow:cross-project-adapter-migration`
 
 This repo intentionally uses plugin-only exposure for Claude Code. It does not duplicate skills under `.claude/skills` or `.claude/commands`.

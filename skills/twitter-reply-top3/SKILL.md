@@ -1,16 +1,16 @@
 ---
-name: opencli-twitter-reply-top3-english-only
-description: Read 50 tweets from the user's X/Twitter home timeline, pick the best 3 English-language engagement opportunities, like them, draft concise English replies, choose 1 of those 3 for a quote-style commentary post, and publish the replies plus the quote-style post through TweetFlow's runtime wrapper.
+name: twitter-reply-top3
+description: Read 50 tweets from the user's X/Twitter home timeline, pick the best 3 engagement opportunities, like them, draft concise replies for all 3, choose 1 of those 3 for a quote-style commentary post, and publish the replies plus the quote-style post through TweetFlow's runtime wrapper.
 ---
 
-# OpenCLI Twitter Reply Top 3 English Only
+# Twitter Reply Top 3
 
 Use this skill when the user wants to:
 
 - read the latest 50 tweets from their home timeline
-- identify the 3 best English-language tweets to engage with
+- identify the 3 best tweets to engage with
 - like those 3 tweets
-- reply to those 3 tweets in English
+- reply to those 3 tweets
 - choose 1 of those 3 tweets for a quote-style commentary post
 
 ## Preconditions
@@ -52,19 +52,18 @@ Important:
 ../../scripts/tweetflow-opencli twitter timeline --limit 50 -f json
 ```
 
-2. Review the results and rank tweets by reply value. Only consider tweets where the main tweet body is primarily in English. Prefer tweets that are:
+2. Review the results and rank tweets by engagement value. Prefer tweets that are:
    - recent and conversational
    - from accounts the user likely wants to engage with
    - likely to benefit from a short, useful, non-spammy reply
    - not obviously sensitive, hostile, or high-risk
 
-3. Exclude tweets that are poor reply targets:
-   - tweets primarily written in Chinese or another non-English language
+3. Exclude tweets that are poor engagement targets:
    - ads, giveaways, ragebait, or engagement farming
    - highly sensitive political, legal, medical, or personal topics unless the user explicitly wants that
    - tweets where a reply would likely look generic or low-value
 
-4. Select the top 3 English-language tweets.
+4. Select the top 3 tweets.
 
 5. From those 3 tweets, choose 1 as the quote-style candidate. Prefer tweets where a quote adds a higher-level frame, sharper judgment, or a trend view that would not fit as well in a direct reply. Avoid quoting tweets that are too personal, too sensitive, or only worth a lightweight reply.
 
@@ -82,7 +81,6 @@ If a like fails:
 - If the command fails with `No tab with given id`, retry the like once in a fresh command/session.
 
 7. Draft one reply for each selected tweet. Replies should usually be:
-   - in English
    - short
    - specific to the tweet
    - additive rather than generic praise
@@ -118,10 +116,10 @@ curl -L --max-time 15 "https://cdn.syndication.twimg.com/tweet-result?id=<status
 Use the returned `text` field as the source tweet text.
 
 9. Draft one quote-style commentary post for the chosen quote target. The commentary should:
-   - be in English
    - add analysis, not paraphrase
    - keep one clear point
    - stay short enough to leave room for the quoted tweet, preferably 220 characters or fewer
+   - match the source tweet language: Chinese source tweets get Chinese commentary; English source tweets get English commentary
    - use plain ASCII punctuation
    - avoid hashtags, emojis, filler, and generic praise unless the user explicitly asks for them
 
@@ -165,6 +163,12 @@ This will matter because <implication>.
 
 Keep the quote-specific commentary tied to the source tweet. Do not sound like a generic motivational post. If all 3 selected tweets are weak quote targets, say so instead of forcing a quote.
 
+For language choice:
+
+- If the source tweet is primarily Chinese, write the quote-style commentary in Chinese.
+- If the source tweet is primarily English, write the quote-style commentary in English.
+- Do not mix languages unless the source tweet itself is meaningfully bilingual and the mixed style is clearly intentional.
+
 10. Unless the user explicitly asked for fully automatic posting, present:
    - the 3 selected tweets
    - the 3 drafted replies
@@ -202,8 +206,7 @@ When several tweets are candidates, prefer this order:
 2. Best chance of a meaningful interaction
 3. Lowest risk of sounding automated
 4. Strongest signal from tweet content plus engagement context
-5. Clear fit for a natural English reply
-6. Clear headroom for one tweet among the 3 to support a strong quote-style commentary angle
+5. Clear headroom for one tweet among the 3 to support a strong quote-style commentary angle
 
 ## Important notes
 
@@ -212,4 +215,4 @@ When several tweets are candidates, prefer this order:
 - `EADDRINUSE` from `node dist/daemon.js` means the daemon is already bound to port `19825`; that is not the bug.
 - `No tab with given id` usually means the UI session went stale. Retry the affected `like` or `reply` once in a fresh command. For the quote-style post, inspect the timeline before any retry.
 - A reported success from `reply` or the quote-style post is useful but not perfect. For important outreach, recommend a manual spot-check in X after posting.
-- If fewer than 3 English tweets are good candidates, do not force likes or replies. Explain why and stop with the strongest available candidates.
+- If all 50 tweets are poor candidates, do not force likes, replies, or quotes. Explain why and ask whether to draft anyway.
