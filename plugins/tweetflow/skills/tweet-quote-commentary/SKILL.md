@@ -1,9 +1,9 @@
 ---
-name: twitter-quote-commentary
+name: tweet-quote-commentary
 description: Read a specific Twitter/X post from a tweet URL, extract the original tweet text, draft a short quote-style commentary with a clear judgment, and publish it through TweetFlow's runtime wrapper. Use when Codex needs to turn one tweet URL into a concise quote-like post, especially for architecture breakdowns, trend judgments, or other high-signal reactions that should add analysis rather than repeat the source.
 ---
 
-# Twitter Quote Commentary
+# Tweet Quote Commentary
 
 Turn one tweet URL into a quote-style post in three phases: read the source, write a short take, then publish it.
 

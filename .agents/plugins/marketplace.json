@@ -1,0 +1,19 @@
+{
+  "name": "tweetflow-local",
+  "interface": {
+    "displayName": "TweetFlow Local Plugins"
+  },
+  "plugins": [
+    {
+      "name": "tweetflow",
+      "source": {
+        "source": "local",
+        "path": "./plugins/tweetflow"
+      },
+      "policy": {
+        "installation": "AVAILABLE"
+      },
+      "category": "Coding"
+    }
+  ]
+}

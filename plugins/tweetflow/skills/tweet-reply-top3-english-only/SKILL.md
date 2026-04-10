@@ -1,9 +1,9 @@
 ---
-name: twitter-reply-top3-english-only
+name: tweet-reply-top3-english-only
 description: Read 50 tweets from the user's X/Twitter home timeline, pick the best 3 English-language engagement opportunities, like them, draft concise English replies, choose 1 of those 3 for a quote-style commentary post, and publish the replies plus the quote-style post through TweetFlow's runtime wrapper.
 ---
 
-# Twitter Reply Top 3 English Only
+# Tweet Reply Top 3 English Only
 
 Use this skill when the user wants to:
 

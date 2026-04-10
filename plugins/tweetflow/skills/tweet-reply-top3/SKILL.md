@@ -1,9 +1,9 @@
 ---
-name: twitter-reply-top3
+name: tweet-reply-top3
 description: Read 50 tweets from the user's X/Twitter home timeline, pick the best 3 engagement opportunities, like them, draft concise replies for all 3, choose 1 of those 3 for a quote-style commentary post, and publish the replies plus the quote-style post through TweetFlow's runtime wrapper.
 ---
 
-# Twitter Reply Top 3
+# Tweet Reply Top 3
 
 Use this skill when the user wants to:
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tweet Quote Commentary"
+  short_description: "Read a tweet, draft a take, and quote it."
+  default_prompt: "Use $tweet-quote-commentary to read a tweet URL, write a short judgment, and post it through TweetFlow."
