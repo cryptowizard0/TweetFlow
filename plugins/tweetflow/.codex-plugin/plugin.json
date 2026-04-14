@@ -19,6 +19,8 @@
     "category": "Developer Tools",
     "capabilities": ["Interactive", "Write"],
     "websiteURL": "https://github.com/cryptowizard0/TweetFlow",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/logo.svg",
     "defaultPrompt": [
       "Run TweetFlow setup and tell me what is missing.",
       "Review 50 timeline tweets and draft the top 3 replies.",
